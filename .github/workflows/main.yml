@@ -1,0 +1,18 @@
+name: Call CICD Workflow
+
+on:
+  pull_request:
+    branches:
+      - main
+      - dev
+      - test
+
+permissions: 
+  id-token: write # required!
+  contents: read
+      
+jobs:
+  call_cicd_workflow:
+    name: Llamar al workflow reutilizable de CICD
+    uses: DevOps-Obligatorio-MV276756/Obligatorio-DevOps/.github/workflows/cicd_workflow.yml@main
+    secrets: inherit
